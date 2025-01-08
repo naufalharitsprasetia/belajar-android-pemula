@@ -2,8 +2,22 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.ProjectAkhirPemula" parent="Theme.Material3.DayNight">
         <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimary">@color/first</item>
+        <item name="colorSecondary">@color/second</item>
+        <item name="actionBarStyle">@style/MyActionBar</item>
+        <item name="colorControlNormal">@color/fourth</item>
+        <item name="android:windowSplashScreenBackground" tools:ignore="NewApi">@color/first</item>
+        <item name="android:windowSplashScreenAnimatedIcon" tools:ignore="NewApi">@drawable/heroes</item>
+        <item name="android:windowSplashScreenAnimationDuration" tools:ignore="NewApi">1000</item>
+        <item name="android:windowSplashScreenIconBackgroundColor" tools:ignore="NewApi">@color/third</item>
+    </style>
+    <style name="MyActionBar" parent="Widget.AppCompat.ActionBar">
+        <item name="background">@color/first</item>
+        <item name="titleTextStyle">@style/MyActionBarTitleText</item>
     </style>
 
+    <style name="MyActionBarTitleText" parent="TextAppearance.AppCompat.Widget.ActionBar.Title">
+        <item name="android:textColor">@color/fourth</item>
+    </style>
     <style name="Theme.ProjectAkhirPemula" parent="Base.Theme.ProjectAkhirPemula" />
 </resources>

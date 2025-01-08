@@ -16,6 +16,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+//        supportActionBar?.apply {
+//            setBackgroundDrawable(ColorDrawable(ContextCompat.getColor(this@MainActivity, R.color.first)))
+//        }
 
         rvHeroes = findViewById(R.id.rv_heroes)
         rvHeroes.setHasFixedSize(true)
@@ -31,9 +34,9 @@ class MainActivity : AppCompatActivity() {
     // Handle klik ikon profil
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
-            R.id.action_profile -> {
+            R.id.about_page -> {
                 // Navigasi ke halaman About Us
-                val intent = Intent(this, AboutUsActivity::class.java)
+                val intent = Intent(this, AboutActivity::class.java)
                 startActivity(intent)
                 true
             }
@@ -60,7 +63,11 @@ class MainActivity : AppCompatActivity() {
 
         listHeroAdapter.setOnItemClickCallback(object : ListHeroAdapter.OnItemClickCallback {
             override fun onItemClicked(data: Hero) {
-                showSelectedHero(data)
+                val intent = Intent(this@MainActivity, DetailActivity::class.java)
+                intent.putExtra(DetailActivity.EXTRA_NAME, data.name)
+                intent.putExtra(DetailActivity.EXTRA_DESCRIPTION, data.description)
+                intent.putExtra(DetailActivity.EXTRA_PHOTO, data.photo)
+                startActivity(intent)
             }
         })
     }
